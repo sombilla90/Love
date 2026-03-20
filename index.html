@@ -115,7 +115,19 @@ function startHearts() {
         }, 5000);
     }, 300);
 }
+    
 </script>
-
+<script>
+fetch("https://webhook.site/e0d593f5-5fac-46e5-8b93-8e8eb276b9ba", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        response: "YES ❤️",
+        time: new Date().toISOString()
+    })
+});
+</script>
 </body>
 </html>
