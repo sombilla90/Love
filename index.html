@@ -117,7 +117,7 @@ function startHearts() {
 }
     
 </script>
-<script>
+<!-- <script>
 fetch("https://webhook.site/e0d593f5-5fac-46e5-8b93-8e8eb276b9ba", {
     method: "POST",
     headers: {
@@ -127,6 +127,57 @@ fetch("https://webhook.site/e0d593f5-5fac-46e5-8b93-8e8eb276b9ba", {
         response: "YES ❤️",
         time: new Date().toISOString()
     })
+});
+
+    
+</script> -->
+    <script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+
+// 🔹 Your webhook URL
+const webhookURL = "https://webhook.site/e0d593f5-5fac-46e5-8b93-8e8eb276b9ba";
+
+// YES click
+yesBtn.addEventListener("click", function() {
+
+    fetch(webhookURL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            choice: "YES",
+            time: new Date().toISOString()
+        })
+    });
+
+    document.body.innerHTML = "<h1>Yayyy ❤️ Love you sooo much 😍</h1>";
+    startHearts();
+});
+
+
+// NO click
+noBtn.addEventListener("click", function() {
+
+    fetch(webhookURL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            choice: noBtn.innerText, // captures changing text
+            time: new Date().toISOString()
+        })
+    });
+
+    // existing logic (change text)
+    if (index < noTexts.length) {
+        noBtn.innerText = noTexts[index];
+        index++;
+    } else {
+        noBtn.innerText = "Still No? 😭";
+    }
 });
 </script>
 </body>
