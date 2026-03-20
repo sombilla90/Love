@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background: #ffe6f0;
+        padding-top: 100px;
+        overflow: hidden;
+    }
+
+    h1 {
+        color: #ff4d88;
+        padding: 20px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        margin: 15px;
+        cursor: pointer;
+    }
+
+    #yes {
+        background: #ff4d88;
+        color: white;
+    }
+
+    #no {
+        background: #999;
+        color: white;
+    }
+
+    .heart {
+        position: absolute;
+        color: red;
+        font-size: 20px;
+        animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+        from {
+            transform: translateY(100vh);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-10vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Will you give me ❤️BJ❤️?</h1>
+
+<button id="yes">Yes Somu 💖</button>
+<button id="no">No 😢</button>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+
+// Funny changing NO options
+const noTexts = [
+    "Are you sure Chitti? 🥺",
+    "Think again Prajju 😅",
+    "Really sure Dance aah vathi? 😏",
+    "Last chance PJ 😜",
+    "Don't do this Ganavathi 💔",
+    "I will be sad Edupavathi 😭",
+    "Okay click Yes now Bujjikanna 😌",
+    "You can't escape Pichaavathi 😎",
+    "Say Yes Bajju ❤️"
+];
+
+let index = 0;
+
+// Change NO button text on click
+noBtn.addEventListener("click", () => {
+    if (index < noTexts.length) {
+        noBtn.innerText = noTexts[index];
+        index++;
+    } else {
+        noBtn.innerText = "Still No? Option also won't work 😅😅";
+    }
+});
+
+// YES click action
+yesBtn.addEventListener("click", () => {
+    document.body.innerHTML = "<h1>Yayyy ❤️ Love you sooo much 😍</h1>";
+    startHearts();
+});
+
+// Hearts animation
+function startHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }, 300);
+}
+</script>
+
+</body>
+</html>
